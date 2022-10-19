@@ -1,23 +1,132 @@
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@600&display=swap');
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 22px;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--color-bg-light);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* COLORS */
+  --color-primary: #6a71d9;
+  --color-secondary: rgb(238, 251, 253);
+  --color-light: #ffffff;
+  --color-dark: #000000;
+  --color-bg-light: #efefef;
+  --color-bg-dark: #18181df4;
+  --color-bg-box-light: #ffffff;
+  --color-bg-box-dark: #242424;
+  --color-border-light: #e3e3e3;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.5rem !important;
+}
+
+h2 {
+  font-size: 1.3rem !important;
+}
+
+h3 {
+  font-size: 1.2rem !important;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.mainContainer {
+  padding: 10px;
+}
+
+body .table {
+  width: fit-content;
+  margin: auto;
+}
+
+.table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table tr {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+  gap: 8px;
+}
+
+.table tr td {
+  width: 90px;
+}
+
+.table td svg {
+  font-size: 1.2rem;
+}
+
+.priceChange {
+  display: flex;
+}
+
+.table .stockName {
+  width: 150px;
+  display: flex;
+  gap: 20px;
+  justify-content: left;
+  align-items: center;
+  margin: auto;
+}
+
+.table .stockName img {
+  max-height: 50px;
+  width: 40px;
+  text-align: left;
+  margin-left: -20px;
+
+}
+
+.stock-down {
+  display: flex;
+  gap: 10px;
+  color: rgb(240, 121, 36);
+}
+
+.stock-up {
+  display: flex;
+  gap: 10px;
+  color: rgb(43, 191, 161);
+}
+
+.flex-row {
+  display: flex;
+}
+
+@media screen and (max-width: 800px) {
+  .flex-row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
