@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&family=Montserrat:wght@400;600;700&display=swap');
 @import-normalize;
-@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@600&display=swap');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 22px;
   font-weight: 400;
@@ -16,8 +15,8 @@
   -webkit-text-size-adjust: 100%;
 
   /* COLORS */
-  --color-primary: #6a71d9;
-  --color-secondary: rgb(238, 251, 253);
+  --color-primary: #3F51B5;
+  --color-secondary: #00BCD4;
   --color-light: #ffffff;
   --color-dark: #000000;
   --color-bg-light: #efefef;
@@ -27,11 +26,49 @@
   --color-border-light: #e3e3e3;
 }
 
+html body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.main-container {
+  margin: auto;
+  padding: 20px;
+  max-height: max-content;
+  max-width: max-content;
+}
+
+.box {
+  min-width: fit-content;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 2px #ccc;
+  border: 0.5px solid #ccc;
+  border-radius: 8px;
+  gap: 20px;
+  background-color: var(--color-bg-box-light);
+  padding: 35px;
+}
+
+.section-title {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.avatar {
+  background: linear-gradient(190deg, #ddd0facf 0%, #A5DFF9cf 100%) !important;
+}
+
+.avatar svg {
+  color: var(--color-primary);
 }
 
 a {
@@ -44,11 +81,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3rem !important;
+  font-size: 1.2rem !important;
 }
 
 h3 {
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
 }
 
 ol,
@@ -56,66 +93,19 @@ ul {
   list-style: none;
 }
 
-.mainContainer {
-  padding: 10px;
+.capitalize {
+  text-transform: capitalize;
 }
 
-body .table {
-  width: fit-content;
-  margin: auto;
-}
-
-.table tbody {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.table tr {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #e6e6e6;
-  gap: 8px;
-}
-
-.table tr td {
-  width: 90px;
-}
-
-.table td svg {
-  font-size: 1.2rem;
-}
-
-.priceChange {
-  display: flex;
-}
-
-.table .stockName {
-  width: 150px;
-  display: flex;
-  gap: 20px;
-  justify-content: left;
-  align-items: center;
-  margin: auto;
-}
-
-.table .stockName img {
-  max-height: 50px;
-  width: 40px;
-  text-align: left;
-  margin-left: -20px;
-
+.stockList:hover {
+  background: linear-gradient(45deg, #ddd0fa40 0%, #A5DFF940 100%);
 }
 
 .stock-down {
-  display: flex;
-  gap: 10px;
   color: rgb(240, 121, 36);
 }
 
 .stock-up {
-  display: flex;
-  gap: 10px;
   color: rgb(43, 191, 161);
 }
 
@@ -123,7 +113,7 @@ body .table {
   display: flex;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .flex-row {
     flex-direction: column;
     justify-content: center;
