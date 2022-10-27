@@ -28,8 +28,8 @@ import {
 import {
     BsFillArrowDownRightCircleFill as StockDown,
     BsFillArrowUpRightCircleFill as StockUp,
-    MdOutlinePlaylistAdd,
-    MdOutlineDeleteSweep
+    FaHeart,
+    FaRegHeart,
 } from 'react-icons/all'
 
 function StockDetails({ symbol2, title, w }) {
@@ -149,7 +149,7 @@ function StockDetails({ symbol2, title, w }) {
                 chartData.x
                     ? (
                         <Box>
-                            <Box className='box' w={w ? w : '100%'}>
+                            <Box className='box' w={w ? w : '800px'}>
                                 {
                                     title
                                         ? <Heading className='section-title'>{title}</Heading>
@@ -164,7 +164,7 @@ function StockDetails({ symbol2, title, w }) {
                                             <Box display='flex' justifyContent='center' alignItems='center'  >
                                                 <Heading><strong>{stockInfo.CompanyName.length > 20 ? stockInfo.CompanyName.slice(0, 20) + '...' : stockInfo.CompanyName}</strong></Heading>
                                                 <Button variant='ghost' onClick={hasStock(symbol) ? () => handleDeleteFromWatchList(stockInfo) : () => handleAddToWatchlist(stockInfo)}>
-                                                    {hasStock(symbol) ? <MdOutlineDeleteSweep fontSize='1.3rem' /> : <MdOutlinePlaylistAdd fontSize='1.3rem' />}
+                                                    {hasStock(symbol) ? <FaHeart fontSize='1.3rem' /> : <FaRegHeart fontSize='1.3rem' />}
                                                 </Button>
                                             </Box>
                                             <h3>{symbol}</h3>
@@ -255,7 +255,7 @@ function StockDetails({ symbol2, title, w }) {
                             </Box>
                         </Box>
                     )
-                    : <span>Loading..</span>
+                    : <span>Loading...</span>
             }
         </Box>
     )
