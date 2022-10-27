@@ -30,11 +30,14 @@ export const Welcomme = () => {
             <Grid className={styles.mainGrid}>
                 <GridItem className={styles.leftGrid} colSpan={2} p='10%'>
                     <Box w='100%' display='flex' justifyContent='center'>
-                        <Logo size='2.2rem' />
+                        <Logo size='2.3rem' />
                     </Box>
                     <Box h='80%' display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='40px'>
-                        <Box display='flex' gap='4px'><Heading fontWeight='600'>Test your investment skills now!</Heading><span>*</span></Box>
-                        <form className={styles.welcommeForm} onSubmit={(e) => handleSubmit(e)}>
+                        <Box display='flex' gap='4px'>
+                            <Heading fontWeight='600'>
+                                {`Get started now and take control of your finances!`}
+                            </Heading><span>*</span></Box>
+                        <form className={`${styles.welcommeForm} box`} onSubmit={(e) => handleSubmit(e)}>
                             <FormLabel w='100%'>Name:
                                 <Input name="name" isRequired onChange={(e) => setName(e.currentTarget.value)} value={name} type='text' placeholder='Your Name' />
                                 <span style={{ color: "red" }}>{validationMessage}</span>
@@ -67,9 +70,11 @@ export const Welcomme = () => {
                     </Text>
                 </GridItem>
                 <GridItem className={styles.rightGrid} colSpan={3} display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='40px' >
-                    <Box w='80%' display='flex' justifyContent='center' borderBottom='1.5px solid #ccc'><Image w='500px' marginBottom='-1.5px' src="/svg/dashboard-color-secondary.svg" /></Box>
+                    <Box w='80%' display='flex' justifyContent='center' borderBottom='1.5px solid #ccc'>
+                        <Image w='500px' marginBottom='-1.5px' src="/images/dashboard-color-secondary.svg" />
+                    </Box>
                     <Text className={styles.welcommeInfo}>
-                        {`Everything you need to efficiently manage your investments in one place. Get started now and take control of your finances!`}
+                        {`Everything you need to efficiently manage your investments in one place.`}
                     </Text>
                 </GridItem>
             </Grid>
