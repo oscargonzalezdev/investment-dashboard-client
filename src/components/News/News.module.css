@@ -1,0 +1,33 @@
+.containerNews {
+  display: flex;
+  gap: 30px;
+}
+
+.containerLatestNews {
+  overflow: scroll;
+  overflow-x: hidden;
+  min-width: 40%;
+}
+
+/* MOBILE VIEW */
+@media screen and (max-width: 800px) {
+  .containerNews {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .containerNews>div {
+    padding: 10px;
+  }
+
+  .containerLatestNews {
+    overflow-y: hidden;
+    overflow: initial;
+    height: 100%;
+  }
+
+  .containerLatestNews .boxGrid {
+    height: fit-content;
+  }
+
+}
