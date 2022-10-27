@@ -15,13 +15,13 @@ import {
 import {
     BsFillArrowDownRightCircleFill as StockDown,
     BsFillArrowUpRightCircleFill as StockUp,
-    MdOutlinePlaylistAdd,
-    MdOutlineDeleteSweep
+    FaHeart,
+    FaRegHeart,
 } from 'react-icons/all'
 import { useNavigate } from 'react-router-dom'
 import { DataContext } from '../../../context/data.context'
 
-function StockTable({ data, type, title, w }) {
+function StockTable({ data, type, title, w, h }) {
 
     const { getTrendingStocks, buttonSelected, watchlist, setWatchlist, setSearchResults, setIsSearching } = useContext(DataContext)
     const navigate = useNavigate()
@@ -60,7 +60,7 @@ function StockTable({ data, type, title, w }) {
             {
                 !data
                     ? <p>Loading...</p>
-                    : <Box className='box' w={w ? w : 'fit-content'}>
+                    : <Box className='box'>
                         <Box display='flex' justifyContent='space-between' marginBottom='20px'>
                             <Heading textAlign='left' >{title}</Heading>
                             {
@@ -73,7 +73,7 @@ function StockTable({ data, type, title, w }) {
                                     : null
                             }
                         </Box>
-                        <TableContainer maxH='345px' overflowY='scroll' overflowX='hidden'  >
+                        <TableContainer h={h ? h : 'fit-content'} w={w ? w : 'fit-content'} overflowY={ h ? 'scroll' : null} overflowX='hidden'  >
                             <Table>
                                 <Tbody >
                                     {data.map((stock, index) => {
@@ -146,11 +146,12 @@ function StockTable({ data, type, title, w }) {
                                                 </Td>
                                                 <Td>
                                                     <Button
+                                                    variant='ghost'
                                                         className='stockList'
                                                         style={{ cursor: 'pointer' }}
                                                         onClick={hasStock(stock.Symbol) ? () => handleDeleteFromWatchList(stock) : () => handleAddToWatchlist(stock)}
                                                     >
-                                                        {hasStock(stock.Symbol) ? <MdOutlineDeleteSweep fontSize='1.3rem' /> : <MdOutlinePlaylistAdd fontSize='1.3rem' />}
+                                                        {hasStock(stock.Symbol) ? <FaHeart fontSize='1.3rem' /> : <FaRegHeart fontSize='1.3rem' />}
                                                     </Button>
                                                 </Td>
                                             </Tr>
