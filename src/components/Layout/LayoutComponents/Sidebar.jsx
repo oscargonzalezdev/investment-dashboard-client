@@ -1,6 +1,5 @@
 import styles from "../Layout.module.css"
 import { Link } from "react-router-dom"
-
 import {
     FcAreaChart,
     MdOutlineDashboard,
@@ -8,11 +7,13 @@ import {
     TbZoomMoney,
     BiWallet,
     HiOutlineNewspaper,
-    IoSettingsOutline,
-    IoLogOutOutline
+    IoLogOutOutline,
+    BsFillPersonFill,
+    SiBuymeacoffee,
+    BsGithub
 } from 'react-icons/all'
 import Logo from "../../Logo/Logo"
-import { Box, Button } from "@chakra-ui/react"
+import { Box, Link as Anchor, Divider } from "@chakra-ui/react"
 
 function Sidebar(props) {
     const handleLogOut = () => {
@@ -31,8 +32,13 @@ function Sidebar(props) {
                     <li><Link to={"/news"}><HiOutlineNewspaper /><span>News</span></Link></li>
                 </ul>
                 <ul>
-                    {/* <li><Link to={"/settings"}><IoSettingsOutline /><span>Settings</span></Link></li> */}
                     <li><Link onClick={() => handleLogOut()}><IoLogOutOutline /><span>Logout</span></Link></li>
+                    <Divider />
+                    <Box className={styles.socialLinks}>
+                        <Anchor href='https://github.com/oscargonzalezdev/investment-dashboard-client' isExternal><BsGithub /></Anchor>
+                        <Anchor href='https://www.oscargonzalez.dev' isExternal><BsFillPersonFill /></Anchor>
+                        <Anchor href='https://www.buymeacoffee.com/oscardev' isExternal><SiBuymeacoffee /></Anchor>
+                    </Box>
                 </ul>
             </nav>
         </aside>
