@@ -1,5 +1,5 @@
 import styles from "../Layout.module.css"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import {
     FcAreaChart,
     MdOutlineDashboard,
@@ -7,7 +7,6 @@ import {
     TbZoomMoney,
     BiWallet,
     HiOutlineNewspaper,
-    IoLogOutOutline,
     BsFillPersonFill,
     SiBuymeacoffee,
     BsGithub
@@ -15,24 +14,21 @@ import {
 import Logo from "../../Logo/Logo"
 import { Box, Link as Anchor, Divider } from "@chakra-ui/react"
 
-function Sidebar(props) {
-    const handleLogOut = () => {
-        return window.location.reload()
-    }
+function Sidebar() {
+
     return (
         <aside className={styles.sidebar}>
             <Box className={styles.logoResponsive}><FcAreaChart /></Box>
             <Box className={styles.logo} ><Logo size='1.5rem' /></Box>
             <nav className={styles.navbar}>
                 <ul>
-                    <li><Link to={"/"}><MdOutlineDashboard /><span>Overview</span></Link></li>
-                    <li><Link to={"/stocks"}><TbZoomMoney /><span>Stocks</span></Link></li>
-                    <li><Link to={"/investments"}><BsBarChartLine /><span>Investments</span></Link></li>
-                    <li><Link to={"/wallet"}><BiWallet /><span>Wallet</span></Link></li>
-                    <li><Link to={"/news"}><HiOutlineNewspaper /><span>News</span></Link></li>
+                    <NavLink to={"/overview"} ><li><MdOutlineDashboard /><span>Overview</span></li></NavLink>
+                    <NavLink to={"/stocks"}><li><TbZoomMoney /><span>Stocks</span></li></NavLink>
+                    <NavLink to={"/investments"}><li><BsBarChartLine /><span>Investments</span></li></NavLink>
+                    <NavLink to={"/wallet"}><li><BiWallet /><span>Wallet</span></li></NavLink>
+                    <NavLink to={"/news"}><li><HiOutlineNewspaper /><span>News</span></li></NavLink>
                 </ul>
                 <ul>
-                    <li><Link onClick={() => handleLogOut()}><IoLogOutOutline /><span>Logout</span></Link></li>
                     <Divider />
                     <Box className={styles.socialLinks}>
                         <Anchor href='https://github.com/oscargonzalezdev/investment-dashboard-client' isExternal><BsGithub /></Anchor>

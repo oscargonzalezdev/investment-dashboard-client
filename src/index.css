@@ -36,13 +36,6 @@ html body {
   padding: 0;
 }
 
-.main-container {
-  margin: auto;
-  padding: 20px;
-  max-height: max-content;
-  max-width: max-content;
-}
-
 .box {
   min-width: fit-content;
   min-height: fit-content;
@@ -113,7 +106,13 @@ ul {
   display: flex;
 }
 
-@media screen and (max-width: 900px) {
+.active {
+  color: #ffffff;
+  background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 1200px) {
   .flex-row {
     flex-direction: column;
     justify-content: center;
