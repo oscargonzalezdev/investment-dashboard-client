@@ -18,14 +18,16 @@ function DataProviderWrapper(props) {
     const [isSearching, setIsSearching] = useState(false)
 
     useEffect(() => {
-        const getNews = async () => {
-            const response = await fetchNews()
-            setNews(response)
+        if (user.userName !== '') {
+            const getNews = async () => {
+                const response = await fetchNews()
+                setNews(response)
+            }
+            getNews()
+            getTrendingStocks()
+            setDefaultWatchlist()
         }
-        getNews()
-        getTrendingStocks()
-        setDefaultWatchlist()
-    }, [])
+    }, [user])
 
     useEffect(() => {
         if (investments.length > 0) {
@@ -103,7 +105,7 @@ function DataProviderWrapper(props) {
                 searchResults,
                 setSearchResults,
                 isSearching,
-                setIsSearching
+                setIsSearching,
             }}>
             {props.children}
         </DataContext.Provider>
