@@ -1,11 +1,19 @@
+import { Box } from '@chakra-ui/react';
 import Plot from 'react-plotly.js';
+import SkewLoader from "react-spinners/SkewLoader"
 
 function StockChart({ chartData }) {
     return (
         <>
             {
                 !chartData
-                    ? <span>Loading...</span>
+                    ? <SkewLoader
+                        color="#3F51B5"
+                        cssOverride={{ margin: 'auto' }}
+                        loading
+                        size={30}
+                        speedMultiplier={1}
+                    />
                     : <Plot
                         data={[
                             {

@@ -31,6 +31,7 @@ import {
     FaHeart,
     FaRegHeart,
 } from 'react-icons/all'
+import SkewLoader from "react-spinners/SkewLoader"
 
 function StockDetails({ symbol2, title, w }) {
     let { symbol } = useParams()
@@ -144,11 +145,11 @@ function StockDetails({ symbol2, title, w }) {
     }
 
     return (
-        <Box className={!w && 'main-container' }>
+        <>
             {
                 chartData.x
                     ? (
-                        <Box>
+                        <Box className={w && w}>
                             <Box className='box' w={w ? w : '800px'}>
                                 {
                                     title
@@ -255,9 +256,17 @@ function StockDetails({ symbol2, title, w }) {
                             </Box>
                         </Box>
                     )
-                    : <span>Loading...</span>
+                    : <Box display='flex' flex='1'>
+                        <SkewLoader
+                            color="#3F51B5"
+                            cssOverride={{ margin: 'auto' }}
+                            loading
+                            size={30}
+                            speedMultiplier={1}
+                        />
+                    </Box>
             }
-        </Box>
+        </>
     )
 }
 

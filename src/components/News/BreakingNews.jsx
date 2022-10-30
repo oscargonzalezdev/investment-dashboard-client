@@ -2,14 +2,21 @@ import { useContext } from 'react'
 import { Box, Grid, GridItem, Heading } from '@chakra-ui/react'
 import styles from './News.module.css'
 import { DataContext } from '../../context/data.context'
+import SkewLoader from "react-spinners/SkewLoader"
 
-function BreakingNews({w, h}) {
+function BreakingNews({ w, h }) {
     const { news } = useContext(DataContext)
     return (
         <>
             {
                 !news.length > 0
-                    ? <p>Loading...</p>
+                    ? <SkewLoader
+                        color="#3F51B5"
+                        cssOverride={{ margin: 'auto' }}
+                        loading
+                        size={30}
+                        speedMultiplier={1}
+                    />
                     : <Box className='box' w={w ? w : 'fit-content'}>
                         <Heading className='section-title'>Breaking News</Heading>
                         <Box className={styles.containerLatestNews}>
