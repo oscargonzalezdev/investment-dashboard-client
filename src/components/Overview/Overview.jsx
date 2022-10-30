@@ -11,7 +11,7 @@ function Overview() {
     const { trendingStocks } = useContext(DataContext)
 
     return (
-        <Box className="main-container">
+        <>
             <Grid templateColumns='repeat(9, 1fr)' gap='20px'>
                 <GridItem display='flex' flexDirection='column' gap='20px' colSpan={5}>
                     <StockDetails w='100%' title='Stock of the Week' symbol2={'IBM'} />
@@ -25,7 +25,7 @@ function Overview() {
                     <BreakingNews h='620px' />
                 </GridItem>
             </Grid>
-        </Box>
+        </>
     )
 }
 

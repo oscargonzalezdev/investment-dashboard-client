@@ -21,7 +21,7 @@ function Wallet() {
     const [amountTransfer, setAmountTransfer] = useState(0)
 
     return (
-        <Box className='main-container'>
+        <>
             <Box className='box'>
                 <Heading className='section-title'>Wallet</Heading>
                 <TableContainer border='1px solid #ccc' borderRadius='8px' p='5px' >
@@ -66,7 +66,7 @@ function Wallet() {
                     </Box>
                 </Box>
             </Box>
-        </Box>
+        </>
     )
 }
 

@@ -7,7 +7,7 @@ import BreakingNews from './BreakingNews'
 function News() {
     const { news } = useContext(DataContext)
     return (
-        <Box className='main-container'>
+        <>
             {
                 !news.length > 0
                     ? <p>Loading...</p>
@@ -41,7 +41,7 @@ function News() {
                         </Box>
                     )
             }
-        </Box>
+        </>
     )
 }
 

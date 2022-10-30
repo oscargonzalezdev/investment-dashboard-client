@@ -6,7 +6,7 @@ import StockTable from '../Stocks/StocksComponents/StockTable'
 function Investments() {
     const { investments } = useContext(DataContext)
     return (
-        <Box className='main-container'>
+        <>
             {
                 investments.length < 1
                     ? <Box className='box'>
@@ -18,7 +18,7 @@ function Investments() {
                     </Box>
                     : <StockTable data={investments} type='investments' title='Last Trades' />
             }
-        </Box>
+        </>
     )
 }
 
