@@ -1,10 +1,17 @@
-import { Grid, GridItem, Box, Heading, Image, Input, Button, FormLabel, InputGroup, InputLeftElement, Text } from "@chakra-ui/react"
+import { Grid, GridItem, Box, Heading, Image, Input, Button, FormLabel, InputGroup, InputLeftElement, Text, Link as Anchor } from "@chakra-ui/react"
 import { useContext, useState } from "react"
 import { DataContext } from "../../context/data.context"
 import Logo from "../Logo/Logo"
 import styles from './Welcomme.module.css'
+import {
+    BsFillPersonFill,
+    SiBuymeacoffee,
+    BsGithub
+} from 'react-icons/all'
+import { useNavigate } from 'react-router-dom'
 
 export const Welcomme = () => {
+    const navigate = useNavigate()
     const { wallet, setWallet, setUser, setBalance } = useContext(DataContext)
     const [name, setName] = useState('')
     const [initialDeposit, setInitialDeposit] = useState(6000)
@@ -13,6 +20,7 @@ export const Welcomme = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         validateName(name)
+        navigate('/overview')
     }
 
     const validateName = (name) => {
@@ -28,15 +36,23 @@ export const Welcomme = () => {
     return (
         <Box className={styles.bg} >
             <Grid className={styles.mainGrid}>
-                <GridItem className={styles.leftGrid} colSpan={2} p='10%'>
-                    <Box w='100%' display='flex' justifyContent='center'>
-                        <Logo size='2.3rem' />
+                <GridItem className={styles.leftGrid} colSpan={4} p='6%'>
+                    <Box w='100%' display='flex' justifyContent='space-between' alignItems='center'>
+                        <Logo size='2rem' />
+                        <Box w='fit-content' className={styles.socialLinks}>
+                            <Anchor href='https://github.com/oscargonzalezdev/investment-dashboard-client' isExternal><BsGithub /></Anchor>
+                            <Anchor href='https://www.oscargonzalez.dev' isExternal><BsFillPersonFill /></Anchor>
+                            <Anchor href='https://www.buymeacoffee.com/oscardev' isExternal><SiBuymeacoffee /></Anchor>
+                        </Box>
                     </Box>
                     <Box h='80%' display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='40px'>
-                        <Box display='flex' gap='4px'>
-                            <Heading fontWeight='600'>
-                                {`Get started now and take control of your finances!`}
-                            </Heading><span>*</span></Box>
+                        <Box textAlign='center'>
+                            <Heading display='inline' fontWeight='500'>
+                                {`Get started now and`}<br />
+                                {`take control of your finances! `}
+                            </Heading>
+                            <Text fontSize='1rem' display='inline'>*</Text>
+                        </Box>
                         <form className={`${styles.welcommeForm} box`} onSubmit={(e) => handleSubmit(e)}>
                             <FormLabel w='100%'>Name:
                                 <Input name="name" isRequired onChange={(e) => setName(e.currentTarget.value)} value={name} type='text' placeholder='Your Name' />
@@ -65,11 +81,10 @@ export const Welcomme = () => {
                         </form>
                     </Box>
                     <Text fontSize='0.9rem'>
-                        {`* This web application is a demo project that is part of the author's portfolio.
-                            By using this app you are not dealing with real stock market values. Feel free to use it safely and have fun :)`}
+                        {`* This web application is a demo project. By using this app you are not dealing with real stock market values. Feel free to use it safely and have fun :)`}
                     </Text>
                 </GridItem>
-                <GridItem className={styles.rightGrid} colSpan={3} display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='40px' >
+                <GridItem className={styles.rightGrid} colSpan={6} display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='40px' >
                     <Box w='80%' display='flex' justifyContent='center' borderBottom='1.5px solid #ccc'>
                         <Image w='500px' marginBottom='-1.5px' src="/images/dashboard-color-secondary.svg" />
                     </Box>
