@@ -1,0 +1,28 @@
+.manGrid {
+    grid-template-columns: repeat(9, 1fr);
+    gap: 20px;
+}
+
+.leftGrid {
+    grid-column: span 5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rightGrid {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* MOBILE VIEW */
+@media screen and (max-width: 1200px) {
+    .manGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .leftGrid, .rightGrid {
+        grid-column: span 1;
+    }
+}

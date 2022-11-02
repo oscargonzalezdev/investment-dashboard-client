@@ -15,7 +15,7 @@
     padding: 20px;
 }
 
-.content>div {
+.content > div {
     margin: 0 auto;
 }
 
@@ -141,6 +141,10 @@
 
 /* MOBILE VIEW */
 @media screen and (max-width: 1200px) {
+    .content {
+        padding: 5px;
+    }
+
     .sidebar *>span {
         display: none;
     }
