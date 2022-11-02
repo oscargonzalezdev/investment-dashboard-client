@@ -22,20 +22,24 @@ import { DataContext } from "../../../context/data.context"
 import styles from "../Layout.module.css"
 import { stocksArr } from "../../../utils/seeds/stocksArr"
 import StockTable from "../../Stocks/StocksComponents/StockTable"
+import { useNavigate } from "react-router-dom"
 
 function Header() {
   const {
     user,
+    setUser,
     searchResults,
     setSearchResults,
     isSearching,
     setIsSearching,
     watchlist
   } = useContext(DataContext)
+  const navigate = useNavigate()
   const [isWatchlistOpen, setIsWatchlistOpen] = useState(false)
 
   const handleLogOut = () => {
-    return window.location.reload()
+    navigate('/')
+    setUser({userName: ''})
   }
 
   const handleSearchStock = (e) => {
@@ -62,16 +66,23 @@ function Header() {
   return (
     <Box className={styles.header}>
       <Box p='0 20px' w='100%' display='flex' justifyContent='space-between' >
-        <Box>
-          <InputGroup w='400px' backgroundColor='#fff'>
+        <Box w='100%' maxW='300px'>
+          <InputGroup >
             <InputLeftElement
               pointerEvents='none'
               children={<TbZoomMoney size='25px' color='#6e6e6e' />}
             />
-            <Input shadow='0.6px 0.6px 1px #ccc' id="searchBar" onChange={(e) => { handleSearchStock(e.target.value) }} type='text' placeholder='Search Stocks' />
+            <Input
+              backgroundColor='#fff'
+              display='flex'
+              flex={1}
+              shadow='0.6px 0.6px 1px #ccc' id="searchBar"
+              onChange={(e) => { handleSearchStock(e.target.value) }}
+              type='text'
+              placeholder='Search Stocks'
+            />
           </InputGroup>
           <Box
-            minW='300px'
             position='fixed'
             top='70px'
             zIndex='1'
@@ -82,13 +93,12 @@ function Header() {
           >
             {
               searchResults.length < 1
-                ? isSearching && <Alert status='warning'><AlertIcon />Stock not found.</Alert>
-                : <StockTable data={searchResults} title='Results' />
+                ? isSearching && <Alert w='300px' status='warning'><AlertIcon />Stock not found.</Alert>
+                : <StockTable type='results' data={searchResults} title='Results' />
             }
           </Box>
         </Box>
         <Box display='flex' gap='30px'>
-
           <Box>
             <Button
               onClick={() => handleOpenWatchlist()}
@@ -105,7 +115,6 @@ function Header() {
               </Text>
             </Button>
             <Box
-
               display={isWatchlistOpen === true ? 'block' : 'none'}
               position='fixed'
               top='70px'
@@ -144,7 +153,6 @@ function Header() {
             </MenuList>
           </Menu>
         </Box>
-
       </Box>
     </Box>
   )
